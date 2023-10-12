@@ -8,7 +8,7 @@ type EmployeeData = {
 
 async function fetchEmployees() {
 	try {
-		const response = await fetch("http://localhost:8080/api/v1/employees");
+		const response = await fetch("https://springboot-employee-api.onrender.com/api/v1/employees");
 
 		if (!response.ok) {
 			throw new Error(`HTTP error! Status: ${response.status}`);
@@ -23,7 +23,7 @@ async function fetchEmployees() {
 async function fetchEmployee(id: string) {
     try {
         const response = await fetch(
-            `http://localhost:8080/api/v1/employees/${id}`
+            `https://springboot-employee-api.onrender.com/api/v1/employees/${id}`
         );
 
         if (!response.ok) {
@@ -37,7 +37,7 @@ async function fetchEmployee(id: string) {
 
 const insertEmployees = async ({firstName, lastName, email} : EmployeeData) => {
 	try {
-		const response = await fetch("http://localhost:8080/api/v1/employees", {
+		const response = await fetch("https://springboot-employee-api.onrender.com/api/v1/employees", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
@@ -68,7 +68,7 @@ const updateEmployee = async (
 		});
 
 		const response = await fetch(
-			`http://localhost:8080/api/v1/employees/${employeeId}?${params.toString()}`,
+			`https://springboot-employee-api.onrender.com/api/v1/employees/${employeeId}?${params.toString()}`,
 			{
 				method: "PUT",
 				headers: {
@@ -92,7 +92,7 @@ const updateEmployee = async (
 const deleteEmployee = async (employeeId: string) => {
     try {
         const response = await fetch(
-			`http://localhost:8080/api/v1/employees/${employeeId}`,
+			`https://springboot-employee-api.onrender.com/api/v1/employees/${employeeId}`,
 			{
 				method: "DELETE",
 				headers: {
